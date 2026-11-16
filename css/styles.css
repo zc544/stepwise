@@ -759,6 +759,18 @@ button {
   color: var(--ink);
 }
 
+.sheet-cell.is-correct {
+  background: var(--ok-bg);
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.sheet-cell.is-wrong {
+  background: var(--err-bg);
+  border-color: var(--err);
+  color: var(--err);
+}
+
 .sheet-cell.is-current {
   outline: 2px solid var(--ink);
   outline-offset: 1px;
@@ -786,6 +798,16 @@ button {
 .dot.done {
   background: var(--sand);
   border-color: var(--sand-line);
+}
+
+.dot.correct {
+  background: var(--ok-bg);
+  border-color: var(--ok);
+}
+
+.dot.wrong {
+  background: var(--err-bg);
+  border-color: var(--err);
 }
 
 .dot.now {

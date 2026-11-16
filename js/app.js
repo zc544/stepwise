@@ -416,8 +416,10 @@
     }
 
     const grid = p.ids.map((id, index) => {
-      const done = Boolean(p.answers[id]);
-      const cls = `sheet-cell${done ? ' is-done' : ''}${index === p.index ? ' is-current' : ''}`;
+      const answer = p.answers[id];
+      let cls = 'sheet-cell';
+      if (answer) cls += answer.correct ? ' is-correct' : ' is-wrong';
+      if (index === p.index) cls += ' is-current';
       return `<button type="button" class="${cls}" data-action="jump" data-index="${index}">${index + 1}</button>`;
     }).join('');
 
@@ -430,7 +432,8 @@
           </div>
           <div class="sheet-grid">${grid}</div>
           <div class="sheet-legend">
-            <span><i class="dot done"></i>已答</span>
+            <span><i class="dot correct"></i>答对</span>
+            <span><i class="dot wrong"></i>答错</span>
             <span><i class="dot"></i>未答</span>
             <span><i class="dot now"></i>当前</span>
           </div>
